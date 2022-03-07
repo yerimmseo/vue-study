@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>입력 후 자동으로 수식으로 변경되는 예</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- <input v-model.number="myNumber" type="number"> -->
+    <input v-model="myNumber" type="number"> <!-- 100 뒤에 문자열로 붙어 출력 -->
+    <p>100을 더해서 표시 「{{100 + myNumber}}」</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        myNumber: 0,
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문자열이 선택한 색으로 변하는 예</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <select v-model="myColor">
+      <option disabled value="">색을 선택해 주세요</option>
+      <option>red</option>
+      <option>green</option>
+      <option>blue</option>
+      <option>orange</option>
+      <option>brown</option>
+    </select>
+    <p v-bind:style="{color: myColor}">선택한 색상은 {{ myColor }} 입니다.</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        myColor: ''
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>체크박스의 ON/OFF를 확인하는 예제</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <label><input type="checkbox" v-model="myCheck">
+    체크박스의 상태는 {{myCheck}}</label>
+  </div>
+  <!-- 체크하면 true, 체크를 해제하면 false -->
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        myCheck: false
+      }
+    })
+  </script>
+</body>
+</html>

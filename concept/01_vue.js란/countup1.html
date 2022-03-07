@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js</title>
+  <!-- countup.html의 다른 작성법 -->
+  <!-- countup.html에서는 <script>태그를 <body> 탭의 가장 아래에 넣고 있음. 이는 vue.js가 실행될 때
+    HTML을 먼저 읽어 들일 필요가 있기 때문. HTML 로딩이 완료된 후라면 실행이 가능. window.onload 사용 -->
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- CDN에서 Vue.js를 읽어들임 -->
+  <script>
+    window.onload = function() {
+      new Vue({
+        el: "#app",
+        data: {
+          count:0
+        },
+        methods: {
+          countUp: function() {
+            this.count++;
+          }
+        }
+      })
+    }
+  </script>
+</head>
+<body>
+  <h2>클릭하면 카운터가 올라갑니다.</h2>
+  <div id="app">
+    <p>{{count}}회</p>
+    <button v-on:click="countUp">카운터</button>
+  </div>
+</body>
+</html>

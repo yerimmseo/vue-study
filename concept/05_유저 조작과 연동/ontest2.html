@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>클릭하면 두번째는 누를 수 없게 되는 버튼 예</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button value="good" v-bind:disabled="isClick" v-on:click="onClick">좋아~</button>
+  </div>
+
+  <script>
+    function good() {
+      alert("좋아~");
+    }
+    new Vue({
+      el: '#app',
+      data: {
+        isClick: false
+      },
+      methods: {
+        onClick: function() {
+          this.isClick = true;
+          good();
+        }
+      }
+    })
+  </script>
+</body>
+</html>

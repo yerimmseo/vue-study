@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>다 쓰고 나서 입력하는 예</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input v-model.lazy="myText">
+    <p>입력 후 표시 「{{myText}}」</p>
+  </div>
+  <!-- 입력한 후에 Enter 키를 누르거나 포커스를 이동하면 입력했던 문자열 한꺼번에 출력 -->
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        myText: ''
+      }
+    })
+  </script>
+</body>
+</html>

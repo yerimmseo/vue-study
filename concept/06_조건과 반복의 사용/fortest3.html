@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1 x 5 ~ 10 x 5를 반복 표시하는 예</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="n in 10">{{n}}x5={{n*5}}</li>
+    </ul>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
+</html>

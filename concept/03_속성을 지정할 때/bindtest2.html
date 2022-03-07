@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>링크를 지정하는 예</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <a href="https://roadbook.co.kr/">링크를 직접 지정</a><p></p>
+    <a v-bind:href="myURL">링크를 v-bind로 지정</a>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        myURL: 'https://roadbook.co.kr/'
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배열 데이터를 테이블로 표시하는 예</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    table {
+      width: 100%;
+      text-align: left;
+    }
+    table th {
+      padding: 12px;
+      border-bottom: 2px solid darkgray;
+    }
+    table td {
+      padding: 12px;
+    }
+    table tr:nth-of-type(even) {
+      background-color: rgba(0, 0, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h3>관심 받고 있는 언어 랭킹</h3>
+    <table>
+      <thead>
+        <!-- 테이블 헤더 반복 -->
+        <th v-for="item in header">{{ item }}</th>
+      </thead>
+      <tbody>
+        <!-- 1행 반복 -->
+        <tr v-for="line in ranking">
+          <!-- 1데이터 반복 -->
+          <td v-for="item in line">{{ item }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        header: ["프로그램언어", 2018, 2013, 2008, 2003, 1998],
+        ranking: [
+          ['Java', 1, 2, 1, 1, 16],
+          ['C', 2, 1, 2, 2, 1],
+          ['C++', 3, 4, 3, 3, 2],
+          ['Python', 4, 7, 6, 11, 23],
+          ['JavaScript', 7, 10, 8, 7, 20],
+        ]
+      }
+    })
+  </script>
+</body>
+</html>

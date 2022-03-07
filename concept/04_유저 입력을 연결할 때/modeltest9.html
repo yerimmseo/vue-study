@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>복수의 선택을 배열로 처리</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <select v-model="myColor" multiple style="width: 150px;">
+      <option>red</option>
+      <option>green</option>
+      <option>blue</option>
+      <option>orange</option>
+      <option>brown</option>
+    </select>
+    <p>선택한 색은 {{ myColor }} 입니다.</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        myColor: []
+      }
+    })
+  </script>
+</body>
+</html>
