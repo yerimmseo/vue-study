@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>남은 시간이 0초가 되면 얼럿을 띄우는 예</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <h2>남은 시간이 0초가 되면 얼럿을 띄우는 예</h2>
+  <div id="app">
+    <p>앞으로 {{ restSec }} 초</p>
+    <button v-on:click="startTimer">START</button>
+  </div>
+
+  <!-- <script>
+    function startTimer() {
+      // 남은시간 5초
+      this.restSec = 5;
+      // 타이머 시작, 1초(1000밀리초)에 한번씩 countDown()을 실행
+      this.timerObj = setInterval(() => { countDown() }, 1000)
+    }
+    function countDown() {
+      // 1초 감소
+      this.restSec--;
+      // 0초 이하가 되면 알럿을 띄우고 타이머를 중지
+      if (this.restSec <= 0) {
+        alert("제한 시간 입니다.");
+        clearInterval(this.timerObj);
+      }
+    }
+  </script> -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        restSec: 5,
+        timerObj: null
+      },
+      methods: {
+        startTimer: function() {
+          this.restSec = 5;
+          this.timerObj = setInterval(() => { this.restSec-- }, 1000)
+        }
+      },
+      watch: {
+        // 남은 초를 감시한다.
+        restSec: function() {
+          if (this.restSec <= 0) {
+            alert("제한 시간 입니다.");
+            clearInterval(this.timerObj);
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
