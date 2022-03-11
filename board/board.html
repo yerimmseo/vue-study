@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js Board Sample</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <h2>게시판</h2>
+  <div id="app">
+    <p>게시판 데이터 json 파일 읽기</p>
+    <input type="file" v-on:change="loadData">
+    <button v-on:click="saveBoardList">게시판 저장하기</button>
+
+    <my-board-list v-if="listOK" v-bind:object="dataArray['board']"
+                   v-on:board-read="boardRead"
+                   v-on:board-write="boardWrite"
+                   v-on:board-delete="boardDelete"></my-board-list>
+    <my-board-read v-if="readOK" v-bind:object="boardInfo"
+                   v-on:board-list="boardList"></my-board-read>
+    <my-board-write v-if="writeOK" v-on:board-list="boardList"
+                    v-on:board-save="boardSave"></my-board-write>
+  </div>
+  
+  <script src="component.js"></script>
+  <script src="vue.js"></script>
+
+</body>
+</html>
