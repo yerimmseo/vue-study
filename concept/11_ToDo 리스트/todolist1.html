@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js sample</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <h2>ToDo리스트</h2>
+  <div id="app">
+    <div v-for="todo in todos">
+      <label>
+        <input type="checkbox" v-model="todo.done">
+        <span v-bind:class="{donestyle:todo.done}">{{ todo.text }}</span>
+      </label>
+    </div>
+    <p>{{ remaining }} / {{ todos.length }}건 처리</p>
+  </div>
+
+  <style>
+    .donestyle {
+      text-decoration: line-through;
+      color: lightgray;
+    }
+  </style>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        todos: [
+          {done: false, text: '빵사기'},
+          {done: false, text: '커피사기'}
+        ]
+      }, 
+      computed: {
+        remaining: function () {
+          return this.todos.filter(function (val) {
+            return val.done;
+          }).length;
+        }
+      }
+    })
+  </script>
+</body>
+</html>
