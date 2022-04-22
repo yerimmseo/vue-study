@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <center>
+    <script>
+      if ('serviceWorker' in navigator) { // 브라우저에서 서비스 워커를 지원하는지 확인
+        navigator.serviceWorker           // 서비스 워커 컨테이너는 사용가능한 서비스 워커를 반환하고,
+        .register('/service_worker.js')   // register를 통해 어느 js 파일 안에 서비스 워커가 들어있는지 지정
+        .then(function () {               // 비동기 실행 후 등록된 메시지 출력
+          console.log('서비스 워커 등록');
+        })
+      }
+    </script>
+  </center>
+</body>
+</html>

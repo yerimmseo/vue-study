@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="normal()">일반 반복문 사용</button> <button onclick="useWebWorker()">웹 워커 사용</button> <span id="time"></span> <br>
+  <button onclick="countIncrease()">버튼 클릭 테스트</button> <span id="count">0</span>번 클릭함
+
+  <script>
+    let i = 0;
+
+    function normal() {
+      document.getElementById('time').innerText = '';
+      for (let i = 0; i < 1000000; i++) {
+        console.log(i);
+      }
+      document.getElementById('time').innerText = '일반 반복문 끝';
+    }
+
+    function countIncrease() {
+      i++;
+      document.getElementById('count').innerText = i;
+    }
+
+    function useWebWorker() {
+      document.getElementById('time').innerText = '';
+      var worker = new Worker('web_worker_button.js');
+      worker.onmessage = function (e) {
+        console.log(e.data);
+        document.getElementById('time').innerText = e.data;
+        worker.terminate();
+        worker = undefined;
+      };
+      worker.postMessage('웹 워커 시작');
+    }
+  </script>
+</body>
+</html>

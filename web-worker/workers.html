@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    if (window.Worker) {
+      let worker = new Worker("worker.js");
+      // 에러가 발생할 경우 발생
+      worker.onerror = (e) => {
+        console.log("error " + e.message);
+      }
+      // worker.js에서 postMessage의 값을 받는다.
+      worker.onmessage = (e) => {
+        console.log(e.data);
+      }
+    }
+  </script>
+</body>
+</html>

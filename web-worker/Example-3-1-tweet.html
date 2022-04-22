@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Ido Green">
+  <title>Web Worker: Pull Tweets and save them in local storage</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <style>
+    #result {
+      background: lightblue;
+      padding: 20px;
+      border-radius: 18px;
+    }
+    #tweets {
+      background: yellow;
+      border-radius: 28px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Web Workers: Pull Tweets and save them in local storage</h1>
+  <article>
+    <div id="result"></div>
+    <div id="tweets"></div>
+  </article>
+
+  <script>
+    console.log("WebWorker: Starting");
+    var worker = new Worker("Example-3-2-tweets.js");
+    worker.addEventListener("message", function(e) {
+      var curTime = new Date();
+      $('#result').append(curTime + " ) " + e.data + "<br/>");
+      var source = e.data[0].source;
+      if (typeof source != 'undefined') {
+        var tweets = document.createElement("ul");
+        for (var i = 0; i < 10; i++) {
+          if (typeof e.data[i] !== 'undefined' && e.data[i].text != 'undefined') {
+            var tweetTextItme = document.createElement("li");
+            var tweetText = document.createTextNode(e.data[i].text + " | " + e.data[i].source + " (" + e.data[i].created_at + ")");
+            tweetTextItme.appendChild(tweetText);
+            tweets.appendChild(tweetTextItme);
+            saveTweet(e.data[i]);
+          }
+        }
+        console.log("WebWorker: Updated the DOM with tweets");
+        $("#tweets").append(tweets);
+      }
+    }, false);
+
+    worker.onerror = function(e) {
+      throw new Error(e.message + " (" + e.filename + ":" + e.lineno + ")");
+    };
+
+    function saveTweet(tweet) {
+      localStorage.setItem(tweet.id_str, "{" +
+      "'created' : '" + tweet.created_at + "'," +
+      "'tweet-text': '" + tweet.text + "'}");
+    }
+
+    function getTweet(tweetID) {
+      return localStorage.getItem(tweetID);
+    }
+  </script>
+
+</body>
+</html>
