@@ -26,7 +26,7 @@ Web Worker는 script 실행을 메인 스레드가 아니라 백그라운드 스
 
 <i>이 `data`는 공유되는 것이 아닌 `복제를 통해` 전달할 수 있음.</i>
 
-![image-20220413151014067](C:\Users\SANDSLab\AppData\Roaming\Typora\typora-user-images\image-20220413151014067.png)
+![image-20220413151014067](C:\Users\SANDSLab\AppData\Roaming\Typora\typora-user-images\image-20220413145320123.png)
 
 <i>메인 스레드에서 worker에게 작업을 부여(postMessage)하면 worker는 주어진 일(onmessage)을 처리하는 대로 다시 메인 스레드에게 보내줌(postMessage)</i>
 
