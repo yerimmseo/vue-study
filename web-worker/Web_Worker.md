@@ -10,7 +10,7 @@ Web Worker는 script 실행을 메인 스레드가 아니라 백그라운드 스
 
 <i>* workers 패키지를 따로 만들어서 worker들을 분류함</i>
 
-<img src="![image](https://user-images.githubusercontent.com/80576569/165871243-954d8428-e543-45e0-b41b-c20a022ae3f8.png)" align="left">
+![image](https://user-images.githubusercontent.com/80576569/165871274-65e10276-6aa9-47de-bb52-f5445a48ac63.png)
 
 <i>`new` 라는 연산자를 사용하여 Worker를 생성해주고, 파라미터로 worker가 있는 스크립트 경로를 넣어줌</i>
 
