@@ -14,7 +14,7 @@ Web Worker는 script 실행을 메인 스레드가 아니라 백그라운드 스
 
 <i>`new` 라는 연산자를 사용하여 Worker를 생성해주고, 파라미터로 worker가 있는 스크립트 경로를 넣어줌</i>
 
-<img src="C:\Users\SANDSLab\AppData\Roaming\Typora\typora-user-images\image-20220413145811262.png" align="left">
+![image](https://user-images.githubusercontent.com/80576569/165871309-f76a5532-5cb4-4896-a11a-06440bb6132d.png)
 
 <i>이제 서로가 message를 주고 받을 수 있게 됨</i>
 
@@ -26,7 +26,7 @@ Web Worker는 script 실행을 메인 스레드가 아니라 백그라운드 스
 
 <i>이 `data`는 공유되는 것이 아닌 `복제를 통해` 전달할 수 있음.</i>
 
-![image-20220413151014067](C:\Users\SANDSLab\AppData\Roaming\Typora\typora-user-images\image-20220413145320123.png)
+![image](https://user-images.githubusercontent.com/80576569/165871331-48ac2b90-b537-4155-8cac-2ae7ec942c42.png)
 
 <i>메인 스레드에서 worker에게 작업을 부여(postMessage)하면 worker는 주어진 일(onmessage)을 처리하는 대로 다시 메인 스레드에게 보내줌(postMessage)</i>
 
@@ -34,17 +34,17 @@ Web Worker는 script 실행을 메인 스레드가 아니라 백그라운드 스
 
 <i>countWorker를 보면</i>
 
-![image-20220413151238134](C:\Users\SANDSLab\AppData\Roaming\Typora\typora-user-images\image-20220413151238134.png)
+![image](https://user-images.githubusercontent.com/80576569/165871343-0618dae4-e949-4020-8b77-f4e808c594de.png)
 
 <i>`self`를 `console.log`에서 살펴보면 다음과 같이 출력됨</i>
 
-![image-20220413151509389](C:\Users\SANDSLab\AppData\Roaming\Typora\typora-user-images\image-20220413151509389.png)
+![image](https://user-images.githubusercontent.com/80576569/165871354-41628112-9a97-4e6b-af7a-4254ef6ce72d.png)
 
 <i>이것은 메인 스레드에서 호출된 worker를 의미하며, 단일 스크립트로서 사용된다는 것을 의미함. 메인 스레드하고만 메시지를 주고 받을 수 있음</i>
 
 <i>그래서 `window` 객체를 `console.log`에 찍어보면 worker의 scope 영역에서는 `window` 객체가 정의되어 있지 않다는 결과를 볼 수 있음</i>
 
-![image-20220413151701861](C:\Users\SANDSLab\AppData\Roaming\Typora\typora-user-images\image-20220413151701861.png)
+![image](https://user-images.githubusercontent.com/80576569/165871369-567c1dc5-9a9c-4262-866a-765313495eef.png)
 
 <i>[참고] : https://velog.io/@kimu2370/Web-Worker</i>
 
