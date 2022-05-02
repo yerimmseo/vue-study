@@ -12,7 +12,7 @@
 
 모바일이나 웹 서비스에서 가장 많이 쓰이는 통신 방식. HTTP 통신은 응답 후 연결이 끊기게 되며 과거에 대한 정보를 전혀 담지 않음. 따라서 각 HTTP 요청에는 주체가 누구인지에 대한 정보가 필수적임
 
-<img src="C:\Users\SANDSLab\AppData\Roaming\Typora\typora-user-images\image-20220502145802197.png" alt="image-20220502145802197" style="zoom:80%;" />
+![image](https://user-images.githubusercontent.com/80576569/166210347-3efca02e-e63c-4246-8fd6-898f85c94393.png)
 
 서버에 요청을 보내는 작업은 HTTP 메세지를 보내는 것. 일반적으로 헤더와 바디 두가지로 구성되며 공백은 헤더와 바디를 구분짓는 역할을 함.
 
@@ -39,7 +39,7 @@
 
 계정 정보를 매번 요청에 넣어서 보내기엔 보안이 매우 취약함. 따라서 나온 방식이 Session/Cookie 방식
 
-<img src="C:\Users\SANDSLab\AppData\Roaming\Typora\typora-user-images\image-20220502150247890.png" alt="image-20220502150247890" style="zoom:80%;" />
+![image](https://user-images.githubusercontent.com/80576569/166210385-5b50e0e0-5773-4178-b0c9-f1e7a5bb4524.png)
 
 (순서)
 
@@ -74,7 +74,7 @@
 
 JWT는 세션/쿠키와 함께 모바일과 웹의 인증을 책임지는 대표 주자임. JWT는 Json Web Token의 약자로 인증에 필요한 정보들을 암호화시킨 토큰을 뜻함. 세션/쿠키 방식과 유사하게 사용자는 Access Token(JWT 토큰)을 HTTP 헤더에 실어 서버로 보내게 됨
 
-<img src="C:\Users\SANDSLab\AppData\Roaming\Typora\typora-user-images\image-20220502153331317.png" alt="image-20220502153331317" style="zoom:80%;" />
+![image](https://user-images.githubusercontent.com/80576569/166210402-147b9ee2-f292-4c6f-b58e-3dbb9059a0de.png)
 
 (순서)
 
@@ -131,7 +131,7 @@ ex) Refresh Token의 유효기간 : 2주, Access Token의 유효기간 : 1시간
 
 ##### Access Token + Refresh Token 인증 과정
 
-<img src="C:\Users\SANDSLab\AppData\Roaming\Typora\typora-user-images\image-20220502164541700.png" alt="image-20220502164541700" style="zoom:80%;" />
+![image](https://user-images.githubusercontent.com/80576569/166210433-d997d092-0c69-4def-841a-cefdd2c92054.png)
 
 (순서)
 
